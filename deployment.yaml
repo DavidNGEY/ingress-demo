@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+ # Specifying the kind as Deployment 
+ # because we want to deploy our application
+ kind: Deployment
+ metadata:
+   name: test-app-1
+ spec:
+   selector:
+     matchLabels:
+       app: test-app-1
+   template:
+     metadata:
+       labels:
+         app: test-app-1
+     spec:
+       containers:
+       - name: test-app-1
+       # Specify your DockerHub image 
+         image: ccobse2023/ccob_multilingual
+         ports:
+         # Exposed PORT
+         - containerPort: 3000
