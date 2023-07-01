@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: d-node-sample-helloworld
+spec:
+  selector:
+    matchLabels:
+      app: node-sample-helloworld
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: node-sample-helloworld
+    spec:
+      containers:
+      - name: main
+        image: thebillkidy/node-sample-helloworld:latest # if local, utilize local/node-sample-helloworld
+        imagePullPolicy: Always # if local, utilize Never
+        ports:
+        - containerPort: 3000
